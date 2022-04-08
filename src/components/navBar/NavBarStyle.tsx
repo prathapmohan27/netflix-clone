@@ -1,17 +1,24 @@
 import styled from 'styled-components';
 
+interface scrollInterface {
+  scroll: boolean;
+}
+
+export const Nav = styled.nav<scrollInterface>`
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: ${(props) => (props.scroll ? 'black' : 'transparent')};
+  color: #ededeb;
+  display: flex;
+`;
+
 export const Logo = styled.img`
   width: 8rem;
   object-fit: contain;
   margin-left: 1.5rem;
-`;
-
-export const Nav = styled.div`
-  padding: 0.5rem;
-  background-color: #1a0d0d;
-  color: #ededeb;
-  display: flex;
-  font-family: sans-serif;
 `;
 
 export const Ul = styled.ul`
