@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-interface scrollInterface {
-  scroll: boolean;
+interface propsInterface {
+  scroll?: boolean;
+  isSidebar?: boolean;
 }
 
-export const Nav = styled.nav<scrollInterface>`
+export const Nav = styled.nav<propsInterface>`
   position: fixed;
   top: 0;
   z-index: 10;
@@ -21,9 +22,30 @@ export const Logo = styled.img`
   margin-left: 1.5rem;
 `;
 
-export const Ul = styled.ul`
+export const Ul = styled.ul<propsInterface>`
   list-style: none;
   display: flex;
+  @media only screen and (max-width: 768px) {
+    display: ${(props) => (props.isSidebar ? 'flex' : 'none')};
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+    flex-direction: column;
+    padding: 0.5rem;
+    div {
+      display: block;
+      align-self: flex-end;
+      margin-right: 0.8rem;
+    }
+    li {
+      margin-top: 1rem;
+    }
+  }
+
   li {
     cursor: pointer;
     margin-right: 2.5rem;
@@ -44,16 +66,29 @@ export const User = styled.div`
   }
 `;
 
-// export const ListButtonContainer = styled.div`
-//   display: none;
-//   align-self: center;
-//   margin-right: 1rem;
-// `;
+export const ListButtonContainer = styled.div`
+  display: none;
+  align-self: center;
+  margin-right: 1rem;
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
+`;
 
-// export const ListButton = styled.button`
-//   color: #ededeb;
-//   font-size: 2.5rem;
-//   background-color: transparent;
-//   border: none;
-//   outline: none;
-// `;
+export const ListButton = styled.button`
+  color: #ededeb;
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+`;
+
+export const CloseButtonContainer = styled.div`
+  display: none;
+  font-size: 1.5rem;
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+`;

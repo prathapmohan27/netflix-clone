@@ -1,6 +1,16 @@
 import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import { Logo, Nav, Ul, User } from './NavBarStyle';
+import {
+  Logo,
+  Nav,
+  Ul,
+  User,
+  ListButtonContainer,
+  ListButton,
+  CloseButtonContainer,
+} from './NavBarStyle';
 import logo from '../assets/logo.png';
 import user from '../assets/user.png';
 import DropDown from './dropDown/DropDown';
@@ -8,6 +18,7 @@ import DropDown from './dropDown/DropDown';
 const NavBar = () => {
   const [isDropDown, setIsDropDown] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
+  const [isSidebar, setIsSidebar] = useState<boolean>(false);
 
   function handleScroll() {
     if (window.pageYOffset > 15) {
@@ -29,10 +40,19 @@ const NavBar = () => {
     setIsDropDown(!isDropDown);
   };
 
+  const showSidebar = () => {
+    setIsSidebar(!isSidebar);
+  };
+
   return (
     <Nav scroll={scroll}>
       <Logo src={logo} alt="netflix" />
-      <Ul>
+      <Ul isSidebar={isSidebar}>
+        <div>
+          <CloseButtonContainer onClick={showSidebar}>
+            <FontAwesomeIcon icon={faXmark} />
+          </CloseButtonContainer>
+        </div>
         <li>Home</li>
         <li>Tv Shows</li>
         <li>Movie</li>
@@ -43,6 +63,11 @@ const NavBar = () => {
         <img onClick={showDropDown} src={user} alt="user" />
       </User>
       <DropDown show={isDropDown} />
+      <ListButtonContainer>
+        <ListButton onClick={showSidebar}>
+          <FontAwesomeIcon icon={faBars} />
+        </ListButton>
+      </ListButtonContainer>
     </Nav>
   );
 };

@@ -27,6 +27,16 @@ export const Section = styled.section`
     font-size: 1.2rem;
     font-weight: 400;
   }
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.8rem;
+      width: 100%;
+    }
+  }
 `;
 
 export const HeaderButton = styled.button`
