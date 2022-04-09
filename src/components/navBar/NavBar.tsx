@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
+
 import { Logo, Nav, Ul, User } from './NavBarStyle';
 import logo from '../assets/logo.png';
 import user from '../assets/user.png';
 import DropDown from './dropDown/DropDown';
-import { useState, useEffect } from 'react';
 
 const NavBar = () => {
   const [isDropDown, setIsDropDown] = useState<boolean>(false);
@@ -38,7 +39,6 @@ const NavBar = () => {
         <li>Recently Added</li>
         <li>My List</li>
       </Ul>
-
       <User>
         <img onClick={showDropDown} src={user} alt="user" />
       </User>

@@ -1,14 +1,16 @@
 import styled from 'styled-components';
-
-export const Div = styled.div`
+interface imgInterface {
+  url: string;
+}
+export const Div = styled.div<imgInterface>`
   display: flex;
   align-items: center;
   color: #ededeb;
   width: 100%;
   height: 50vh !important;
   background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.7);
-  background-image: url('https://cdn.pixabay.com/photo/2017/10/13/14/15/fantasy-2847724__340.jpg');
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url(${(props) => props.url || 'transparent'});
   background-size: cover;
 `;
 

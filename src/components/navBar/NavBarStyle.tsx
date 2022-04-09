@@ -43,3 +43,17 @@ export const User = styled.div`
     border-radius: 0.5rem;
   }
 `;
+
+// export const ListButtonContainer = styled.div`
+//   display: none;
+//   align-self: center;
+//   margin-right: 1rem;
+// `;
+
+// export const ListButton = styled.button`
+//   color: #ededeb;
+//   font-size: 2.5rem;
+//   background-color: transparent;
+//   border: none;
+//   outline: none;
+// `;

@@ -1,6 +1,8 @@
 const base_url = 'https://api.themoviedb.org/3/';
 const api_key = 'api_key=6c853d9d4848f8bd909aec2f83847f8b';
 
+export const baseUrl = 'https://image.tmdb.org/t/p/w500';
+
 export const links = {
   trending: `${base_url}trending/all/day?${api_key}`,
   netflix: `${base_url}discover/movie?${api_key}&with_networks=213`,
@@ -13,8 +15,8 @@ export const links = {
 export const getData = async (str: string) => {
   try {
     const response = await fetch(str, { mode: 'cors' });
-    const trending = await response.json();
-    console.log(trending);
+    const data = await response.json();
+    return data.results;
   } catch (error) {
     console.log(error);
   }
