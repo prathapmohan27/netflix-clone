@@ -1,18 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
-import { Container, SmallImgContainer, Row, Img } from './MovieContainerStyle';
-import { links, getData, baseUrl } from '../helperFunction/tmdb';
+import { Container, Row } from './MovieContainerStyle';
+import { links, getData, linksInterface } from '../helperFunction/tmdb';
+import SmallImg from './SmallImg';
+
 interface propsInterface {
   title: string;
 }
-interface linksInterface {
-  trending: string;
-  netflix: string;
-  action: string;
-  documentaries: string;
-  romance: string;
-  horror: string;
-}
+
 const SmallMovieContainer = ({ title }: propsInterface) => {
   const [data, setData] = useState<any[]>([]);
 
@@ -33,11 +28,7 @@ const SmallMovieContainer = ({ title }: propsInterface) => {
       <h2>{title}</h2>
       <Row>
         {data.map((obj, i) => {
-          return (
-            <SmallImgContainer key={i}>
-              <Img src={`${baseUrl}${obj.poster_path}`} alt="poster" />
-            </SmallImgContainer>
-          );
+          return <SmallImg url={obj.poster_path} key={i} />;
         })}
       </Row>
     </Container>

@@ -3,7 +3,16 @@ const api_key = 'api_key=6c853d9d4848f8bd909aec2f83847f8b';
 
 export const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
-export const links = {
+export interface linksInterface {
+  trending: string;
+  netflix: string;
+  action: string;
+  documentaries: string;
+  romance: string;
+  horror: string;
+}
+
+export const links: linksInterface = {
   trending: `${base_url}trending/all/day?${api_key}`,
   netflix: `${base_url}discover/movie?${api_key}&with_networks=213`,
   action: `${base_url}discover/movie?${api_key}&with_genres=28`,
@@ -20,4 +29,11 @@ export const getData = async (str: string) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const getSingleMovie = async () => {
+  const movieData = await getData(links.trending);
+  const obj = movieData[Math.floor(Math.random() * movieData.length - 1)];
+  console.log(obj);
+  return obj;
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Container, ImgContainer, Row, Img } from './MovieContainerStyle';
-import { links, getData, baseUrl } from '../helperFunction/tmdb';
+import { Container, Row } from './MovieContainerStyle';
+import { links, getData } from '../helperFunction/tmdb';
+import LargeImg from './LargeImg';
 
 const LargerMovieContainer = () => {
   const [data, setData] = useState<any[]>([]);
@@ -19,11 +20,7 @@ const LargerMovieContainer = () => {
       <h2>Netflix Original</h2>
       <Row>
         {data.map((obj, i) => {
-          return (
-            <ImgContainer key={i}>
-              <Img src={`${baseUrl}${obj.poster_path}`} alt="poster" />
-            </ImgContainer>
-          );
+          return <LargeImg url={obj.poster_path} key={i} />;
         })}
       </Row>
     </Container>
