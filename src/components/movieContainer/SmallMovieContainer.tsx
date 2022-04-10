@@ -16,11 +16,8 @@ const SmallMovieContainer = ({ title }: propsInterface) => {
   }, []);
 
   const getMovieData = async () => {
-    const netflix_original = await getData(
-      links[title as keyof linksInterface]
-    );
-
-    setData(netflix_original);
+    const movie = await getData(links[title as keyof linksInterface]);
+    setData(movie);
   };
 
   return (

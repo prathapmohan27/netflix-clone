@@ -25,6 +25,7 @@ export const getData = async (str: string) => {
   try {
     const response = await fetch(str, { mode: 'cors' });
     const data = await response.json();
+    console.log(data.results);
     return data.results;
   } catch (error) {
     console.log(error);
