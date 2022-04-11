@@ -20,7 +20,7 @@ const LargerMovieContainer = () => {
       <h2>Netflix Original</h2>
       <Row>
         {data.map((obj, i) => {
-          return <LargeImg url={obj.poster_path} key={i} />;
+          return <LargeImg url={obj.poster_path} id={obj.id} key={i} />;
         })}
       </Row>
     </Container>

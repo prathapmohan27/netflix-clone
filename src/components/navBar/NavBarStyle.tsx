@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 interface propsInterface {
   scroll?: boolean;
   isSidebar?: boolean;
@@ -91,4 +91,9 @@ export const CloseButtonContainer = styled.div`
     outline: none;
     background-color: transparent;
   }
+`;
+
+export const Path = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `;

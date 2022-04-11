@@ -25,7 +25,7 @@ const SmallMovieContainer = ({ title }: propsInterface) => {
       <h2>{title}</h2>
       <Row>
         {data.map((obj, i) => {
-          return <SmallImg url={obj.poster_path} key={i} />;
+          return <SmallImg url={obj.poster_path} id={obj.id} key={i} />;
         })}
       </Row>
     </Container>

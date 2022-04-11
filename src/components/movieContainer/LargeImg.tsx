@@ -1,13 +1,18 @@
+import { Link } from 'react-router-dom';
+
 import { ImgContainer, Img } from './MovieContainerStyle';
-import { baseUrl } from '../helperFunction/tmdb';
+import { imageUrl } from '../helperFunction/tmdb';
 interface propsInterface {
   url: string;
+  id: number;
 }
-const LargeImg = ({ url }: propsInterface) => {
+const LargeImg = ({ url, id }: propsInterface) => {
   return (
-    <ImgContainer>
-      <Img src={`${baseUrl}${url}`} alt="poster" />
-    </ImgContainer>
+    <Link to={`/detail/${id}`}>
+      <ImgContainer>
+        <Img src={`${imageUrl}${url}`} alt="poster" />
+      </ImgContainer>
+    </Link>
   );
 };
 

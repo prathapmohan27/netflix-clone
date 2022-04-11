@@ -56,7 +56,7 @@ describe('LargerMovieContainer Test', () => {
   });
 
   it('check img container', () => {
-    render(<LargeImg url="https://github.com" />);
+    render(<LargeImg url="https://github.com" id={141343} />);
     expect(screen.getByAltText(/poster/i)).toBeInTheDocument();
   });
 });
@@ -73,7 +73,7 @@ describe('SmallMovieContainer ,Movie', () => {
     expect(screen.getAllByAltText(/poster/i)).toHaveLength(4);
   });
   it('check img container', () => {
-    render(<SmallImg url="https://github.com" />);
+    render(<SmallImg url="https://github.com" id={454} />);
     expect(screen.getByAltText(/poster/i)).toBeInTheDocument();
   });
 });

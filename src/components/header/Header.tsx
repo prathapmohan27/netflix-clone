@@ -3,6 +3,8 @@ import { getSingleMovie } from '../helperFunction/tmdb';
 import { useEffect, useState } from 'react';
 
 const Header = () => {
+  const baseUrl = 'https://image.tmdb.org/t/p/original';
+
   const [movie, setMovie] = useState<any>({});
 
   useEffect(() => {
@@ -14,9 +16,12 @@ const Header = () => {
     setMovie(obj);
   };
 
-  const baseUrl = 'https://image.tmdb.org/t/p/original';
   return (
-    <Div url={`${baseUrl}${movie.backdrop_path}`}>
+    <Div
+      url={`${baseUrl}${
+        movie.backdrop_path || '/2vRn5hCfbaWqeiauvMAbr2lG3Sj.jpg'
+      }`}
+    >
       <Section>
         <h1>{movie.original_name || movie.title || movie.name}</h1>
         <div>

@@ -10,6 +10,7 @@ import {
   ListButtonContainer,
   ListButton,
   CloseButtonContainer,
+  Path,
 } from './NavBarStyle';
 import logo from '../assets/logo.png';
 import user from '../assets/user.png';
@@ -53,7 +54,9 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faXmark} />
           </CloseButtonContainer>
         </div>
-        <li>Home</li>
+        <li>
+          <Path to="/">Home</Path>
+        </li>
         <li>Tv Shows</li>
         <li>Movie</li>
         <li>Recently Added</li>

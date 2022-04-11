@@ -1,7 +1,7 @@
 const base_url = 'https://api.themoviedb.org/3/';
 const api_key = 'api_key=6c853d9d4848f8bd909aec2f83847f8b';
 
-export const baseUrl = 'https://image.tmdb.org/t/p/w500';
+export const imageUrl = 'https://image.tmdb.org/t/p/w500';
 
 export interface linksInterface {
   trending: string;
@@ -25,7 +25,6 @@ export const getData = async (str: string) => {
   try {
     const response = await fetch(str, { mode: 'cors' });
     const data = await response.json();
-    console.log(data.results);
     return data.results;
   } catch (error) {
     console.log(error);
@@ -35,6 +34,29 @@ export const getData = async (str: string) => {
 export const getSingleMovie = async () => {
   const movieData = await getData(links.trending);
   const obj = movieData[Math.floor(Math.random() * movieData.length - 1)];
-  console.log(obj);
   return obj;
+};
+
+export const similarMovie = async (id: number) => {
+  try {
+    const response = await fetch(`${base_url}movie/${id}/similar?${api_key}`, {
+      mode: 'cors',
+    });
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const MovieInfo = async (id: number) => {
+  try {
+    const response = await fetch(`${base_url}movie/${id}?${api_key}`, {
+      mode: 'cors',
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
