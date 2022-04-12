@@ -1,11 +1,13 @@
+import { useEffect, useState } from 'react';
+
 import { Div, Section, HeaderButton } from './HeaderStyle';
 import { getSingleMovie } from '../helperFunction/tmdb';
-import { useEffect, useState } from 'react';
 
 const Header = () => {
   const baseUrl = 'https://image.tmdb.org/t/p/original';
 
   const [movie, setMovie] = useState<any>({});
+  const [bg, setBg] = useState<string>('/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg');
 
   useEffect(() => {
     getMovie();
@@ -14,14 +16,11 @@ const Header = () => {
   const getMovie = async () => {
     const obj = await getSingleMovie();
     setMovie(obj);
+    setBg(obj.backdrop_path);
   };
 
   return (
-    <Div
-      url={`${baseUrl}${
-        movie.backdrop_path || '/2vRn5hCfbaWqeiauvMAbr2lG3Sj.jpg'
-      }`}
-    >
+    <Div url={`${baseUrl}${bg}`}>
       <Section>
         <h1>{movie.original_name || movie.title || movie.name}</h1>
         <div>

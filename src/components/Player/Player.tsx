@@ -1,52 +1,50 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Container, ButtonContainer, VideoContainer } from './Style';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
-import { MovieInfo } from '../helperFunction/tmdb';
-
-//autoplay=1
+import { getVideo } from '../helperFunction/tmdb';
+import { Container, ButtonContainer, VideoContainer } from './PlayerStyle';
 
 interface propsInterface {
   movieId: number;
+  bg: string;
 }
-
-const Player = ({ movieId }: propsInterface) => {
+// 675353
+const Player = ({ movieId, bg }: propsInterface) => {
   const [show, setShow] = useState<boolean>(true);
-  const [bgImg, setBgImg] = useState<string>('');
+  const [trailer, setTrailer] = useState<any>([]);
 
   useEffect(() => {
-    getBgImg();
+    getTrailer();
+    setShow(true);
   }, [movieId]);
 
   const showVideo = (): void => {
+    if (trailer.length === 0) {
+      alert('Trailer not available');
+      return;
+    }
     setShow(!show);
   };
 
-  const getBgImg = async () => {
-    const data = await MovieInfo(movieId);
-    setBgImg(data.backdrop_path);
+  const getTrailer = async () => {
+    const data = await getVideo(movieId);
+    setTrailer(data);
   };
-  // backdrop_path
 
   return (
-    <Container url={`https://image.tmdb.org/t/p/original${bgImg}`}>
+    <Container url={`https://image.tmdb.org/t/p/original${bg}`}>
       <ButtonContainer show={show}>
-        <button onClick={showVideo}>
+        <button onClick={showVideo} data-testid="playButton">
           <FontAwesomeIcon icon={faCirclePlay} />
         </button>
       </ButtonContainer>
-      <VideoContainer show={show}>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/RBumgq5yVrA?"
-          title="YouTube video player"
-          frameBorder={0}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </VideoContainer>
+      <VideoContainer
+        data-testid="videoContainer"
+        show={show}
+        dangerouslySetInnerHTML={{ __html: `${trailer[0]}` }}
+      ></VideoContainer>
     </Container>
   );
 };

@@ -7,6 +7,11 @@ interface propsInterface {
 
 export const Container = styled(Div)`
   justify-content: center;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 export const ButtonContainer = styled.div<propsInterface>`
@@ -24,4 +29,13 @@ export const ButtonContainer = styled.div<propsInterface>`
 
 export const VideoContainer = styled.div<propsInterface>`
   display: ${(props) => (props.show ? 'none' : 'block')};
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+    align-self: flex-end !important;
+    iframe {
+      margin-top: 20%;
+      width: 100%;
+    }
+  }
 `;

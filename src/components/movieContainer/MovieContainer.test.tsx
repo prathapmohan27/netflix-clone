@@ -1,5 +1,6 @@
 import { render, screen, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as tmdb from '../helperFunction/tmdb';
 import LargerMovieContainer from './LargerMovieContainer';
 import LargeImg from './LargeImg';
@@ -47,7 +48,12 @@ describe('LargerMovieContainer Test', () => {
   it('check correctly fetch data', async () => {
     const mockMovie = jest.spyOn(tmdb, 'getData');
     mockMovie.mockResolvedValue(data);
-    const component = () => render(<LargerMovieContainer />);
+    const component = () =>
+      render(
+        <Router>
+          <LargerMovieContainer />
+        </Router>
+      );
     await act(async () => {
       component();
     });
@@ -56,14 +62,23 @@ describe('LargerMovieContainer Test', () => {
   });
 
   it('check img container', () => {
-    render(<LargeImg url="https://github.com" id={141343} />);
+    render(
+      <Router>
+        <LargeImg url="https://github.com" id={141343} />
+      </Router>
+    );
     expect(screen.getByAltText(/poster/i)).toBeInTheDocument();
   });
 });
 
 describe('SmallMovieContainer ,Movie', () => {
   it('check correctly render heading', async () => {
-    const component = () => render(<SmallMovieContainer title="horror" />);
+    const component = () =>
+      render(
+        <Router>
+          <SmallMovieContainer title="horror" />
+        </Router>
+      );
     const mockMovie = jest.spyOn(tmdb, 'getData');
     mockMovie.mockResolvedValue(data);
     await act(async () => {
@@ -73,7 +88,11 @@ describe('SmallMovieContainer ,Movie', () => {
     expect(screen.getAllByAltText(/poster/i)).toHaveLength(4);
   });
   it('check img container', () => {
-    render(<SmallImg url="https://github.com" id={454} />);
+    render(
+      <Router>
+        <SmallImg url="https://github.com" id={454} />
+      </Router>
+    );
     expect(screen.getByAltText(/poster/i)).toBeInTheDocument();
   });
 });

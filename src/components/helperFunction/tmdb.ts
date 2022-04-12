@@ -33,7 +33,7 @@ export const getData = async (str: string) => {
 
 export const getSingleMovie = async () => {
   const movieData = await getData(links.trending);
-  const obj = movieData[Math.floor(Math.random() * movieData.length - 1)];
+  const obj = movieData[Math.floor(Math.random() * movieData.length)];
   return obj;
 };
 
@@ -56,6 +56,35 @@ export const MovieInfo = async (id: number) => {
     });
     const data = await response.json();
     return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getVideo = async (id: number) => {
+  try {
+    const response = await fetch(`${base_url}movie/${id}/videos?${api_key}`, {
+      mode: 'cors',
+    });
+    const data = await response.json();
+    let trailers: any[] = [];
+    data.results.forEach((obj: any) => {
+      if (obj.site === 'YouTube') {
+        trailers.push(
+          `<iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/${obj.key}"
+          title="YouTube video player"
+          frameBorder='0'
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+         `
+        );
+      }
+    });
+    return trailers;
   } catch (error) {
     console.log(error);
   }

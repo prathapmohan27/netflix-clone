@@ -21,7 +21,7 @@ const Similar = ({ movieId }: propsInterface) => {
 
   return (
     <Container>
-      <h2>similar</h2>
+      <h2>Similar Movies</h2>
       <Row>
         {data.map((obj, i) => {
           return <LargeImg url={obj.poster_path} id={obj.id} key={i} />;

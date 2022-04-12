@@ -1,30 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Div, Section } from './MovieDetailStyle';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
-import { MovieInfo } from '../helperFunction/tmdb';
+
+import { Div, Section } from './MovieDetailStyle';
+import { imageUrl } from '../helperFunction/tmdb';
 
 interface propsInterface {
-  movieId: number;
+  movie: any;
 }
 
-const MovieDetail = ({ movieId }: propsInterface) => {
-  const [movie, setMovie] = useState<any>({});
-
-  useEffect(() => {
-    getMovie();
-  }, [movieId]);
-
-  const getMovie = async () => {
-    const data = await MovieInfo(movieId);
-    setMovie(data);
-  };
+const MovieDetail = ({ movie }: propsInterface) => {
   console.log(movie);
   return (
     <Div>
       <img
-        src={`https://image.tmdb.org/t/p/w500${
+        src={`${imageUrl}${
           movie.poster_path || '/x747ZvF0CcYYTTpPRCoUrxA2cYy.jpg'
         }`}
         alt="poster"
