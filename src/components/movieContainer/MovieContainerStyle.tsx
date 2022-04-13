@@ -29,7 +29,6 @@ export const ImgContainer = styled.div`
   width: 10rem;
   height: 15rem;
   margin-right: 1rem;
-  cursor: pointer;
   box-sizing: border-box;
   flex: 0 0 auto;
   transition: transform 300ms linear;

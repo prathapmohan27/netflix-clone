@@ -57,10 +57,14 @@ const NavBar = () => {
         <li>
           <Path to="/">Home</Path>
         </li>
-        <li>Tv Shows</li>
-        <li>Movie</li>
-        <li>Recently Added</li>
-        <li>My List</li>
+        <li>
+          <Path to="/movies">Movie</Path>
+        </li>
+        <li>
+          <Path to="/recent">Recently Added</Path>
+        </li>
+        {/* <li>Tv Shows</li>
+        <li>My List</li> */}
       </Ul>
       <User>
         <img onClick={showDropDown} src={user} alt="user" />

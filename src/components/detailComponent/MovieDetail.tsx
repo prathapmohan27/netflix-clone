@@ -11,7 +11,6 @@ interface propsInterface {
 }
 
 const MovieDetail = ({ movie }: propsInterface) => {
-  console.log(movie);
   return (
     <Div>
       <img

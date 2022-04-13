@@ -10,6 +10,8 @@ export interface linksInterface {
   documentaries: string;
   romance: string;
   horror: string;
+  movie: string;
+  tv: string;
 }
 
 export const links: linksInterface = {
@@ -19,8 +21,11 @@ export const links: linksInterface = {
   documentaries: `${base_url}discover/movie?${api_key}&with_genres=99`,
   romance: `${base_url}discover/movie?${api_key}&with_genres=10749`,
   horror: `${base_url}discover/movie?${api_key}&with_genres=27`,
+  movie: `${base_url}discover/movie?${api_key}`,
+  tv: `${base_url}discover/movie?${api_key}`,
 };
 
+// get based on genre
 export const getData = async (str: string) => {
   try {
     const response = await fetch(str, { mode: 'cors' });
@@ -31,12 +36,14 @@ export const getData = async (str: string) => {
   }
 };
 
+// get single from trending
 export const getSingleMovie = async () => {
   const movieData = await getData(links.trending);
   const obj = movieData[Math.floor(Math.random() * movieData.length)];
   return obj;
 };
 
+//get similar movie
 export const similarMovie = async (id: number) => {
   try {
     const response = await fetch(`${base_url}movie/${id}/similar?${api_key}`, {
@@ -49,7 +56,9 @@ export const similarMovie = async (id: number) => {
   }
 };
 
+// get movie info for detail component
 export const MovieInfo = async (id: number) => {
+  console.log('id=>', id);
   try {
     const response = await fetch(`${base_url}movie/${id}?${api_key}`, {
       mode: 'cors',
