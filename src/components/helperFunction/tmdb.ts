@@ -49,6 +49,9 @@ export const similarMovie = async (id: number) => {
     const response = await fetch(`${base_url}movie/${id}/similar?${api_key}`, {
       mode: 'cors',
     });
+    if (!response.ok) {
+      return [];
+    }
     const data = await response.json();
     return data.results;
   } catch (error) {
@@ -58,11 +61,13 @@ export const similarMovie = async (id: number) => {
 
 // get movie info for detail component
 export const MovieInfo = async (id: number) => {
-  console.log('id=>', id);
   try {
     const response = await fetch(`${base_url}movie/${id}?${api_key}`, {
       mode: 'cors',
     });
+    if (!response.ok) {
+      return response.ok;
+    }
     const data = await response.json();
     return data;
   } catch (error) {
@@ -75,6 +80,9 @@ export const getVideo = async (id: number) => {
     const response = await fetch(`${base_url}movie/${id}/videos?${api_key}`, {
       mode: 'cors',
     });
+    if (!response.ok) {
+      return [];
+    }
     const data = await response.json();
     let trailers: any[] = [];
     data.results.forEach((obj: any) => {

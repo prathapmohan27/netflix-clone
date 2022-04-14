@@ -10,7 +10,7 @@ interface propsInterface {
   movieId: number;
   bg: string;
 }
-// 675353
+
 const Player = ({ movieId, bg }: propsInterface) => {
   const [show, setShow] = useState<boolean>(true);
   const [trailer, setTrailer] = useState<any>([]);
