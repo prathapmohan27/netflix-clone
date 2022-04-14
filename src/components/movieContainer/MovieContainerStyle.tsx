@@ -11,8 +11,8 @@ export const Row = styled.div`
   display: flex;
   overflow-x: auto;
   margin-top: 0.5rem;
-  padding: 1rem;
-
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   &::-webkit-scrollbar {
     width: 1px !important;
   }
@@ -28,7 +28,7 @@ export const Row = styled.div`
 export const ImgContainer = styled.div`
   width: 10rem;
   height: 15rem;
-  margin-right: 1rem;
+  margin: 0.4rem;
   box-sizing: border-box;
   flex: 0 0 auto;
   transition: transform 300ms linear;

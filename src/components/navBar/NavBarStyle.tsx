@@ -26,18 +26,18 @@ export const Ul = styled.ul<propsInterface>`
   list-style: none;
   display: flex;
   @media only screen and (max-width: 768px) {
-    display: ${(props) => (props.isSidebar ? 'flex' : 'none')};
     position: absolute;
     top: 0;
     right: 0;
-    width: 60%;
+    width: ${(props) => (props.isSidebar ? '60%' : '0')};
     height: 100vh;
     background-color: #000000;
     margin: 0;
     flex-direction: column;
     padding: 0.5rem;
+    transition: width 500ms ease-in-out;
     div {
-      display: block;
+      display: ${(props) => (props.isSidebar ? 'block' : 'none')};
       align-self: flex-end;
       margin-right: 0.8rem;
     }
