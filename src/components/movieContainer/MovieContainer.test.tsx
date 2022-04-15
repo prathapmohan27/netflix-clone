@@ -2,10 +2,10 @@ import { render, screen, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import * as tmdb from '../helperFunction/tmdb';
-import LargerMovieContainer from './LargerMovieContainer';
-import LargeImg from './LargeImg';
-import SmallImg from './SmallImg';
-import SmallMovieContainer from './SmallMovieContainer';
+import LargerMovieContainer from './large/LargerMovieContainer';
+import LargeImg from './large/LargeImg';
+import SmallImg from './small/SmallImg';
+import SmallMovieContainer from './small/SmallMovieContainer';
 
 const data = [
   {

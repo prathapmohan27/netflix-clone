@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
-import { Container, Row } from './MovieContainerStyle';
-import { links, getData, linksInterface } from '../helperFunction/tmdb';
+import { Container, Row } from '../MovieContainerStyle';
+import { links, getData, linksInterface } from '../../helperFunction/tmdb';
 import SmallImg from './SmallImg';
 
 interface propsInterface {

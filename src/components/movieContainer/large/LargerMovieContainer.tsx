@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Container, Row } from './MovieContainerStyle';
-import { links, getData } from '../helperFunction/tmdb';
+import { Container, Row } from '../MovieContainerStyle';
+import { links, getData } from '../../helperFunction/tmdb';
 import LargeImg from './LargeImg';
 
 const LargerMovieContainer = () => {

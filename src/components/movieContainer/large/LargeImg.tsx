@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-import { ImgContainer, Img } from './MovieContainerStyle';
-import { imageUrl } from '../helperFunction/tmdb';
+import { ImgContainer, Img } from '../MovieContainerStyle';
+import { imageUrl } from '../../helperFunction/tmdb';
 interface propsInterface {
   url: string;
   id: number;

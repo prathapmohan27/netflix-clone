@@ -1,6 +1,6 @@
 import Header from '../header/Header';
-import LargerMovieContainer from '../movieContainer/LargerMovieContainer';
-import SmallMovieContainer from '../movieContainer/SmallMovieContainer';
+import LargerMovieContainer from '../movieContainer/large/LargerMovieContainer';
+import SmallMovieContainer from '../movieContainer/small/SmallMovieContainer';
 
 const Home = () => {
   return (

@@ -2,7 +2,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import MovieDetail from '../detailComponent/MovieDetail';
-import Similar from '../detailComponent/Similer';
+import Similar from '../detailComponent/similer/Similer';
 import Player from '../Player/Player';
 import { MovieInfo } from '../helperFunction/tmdb';
 import ErrorMeg from '../errorComponents/ErrorMeg';

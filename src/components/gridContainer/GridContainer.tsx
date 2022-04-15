@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Grid, Main } from './GridContainerStyle';
 import { links, getData, linksInterface } from '../helperFunction/tmdb';
-import LargeImg from '../movieContainer/LargeImg';
+import LargeImg from '../movieContainer/large/LargeImg';
 
 interface propsInterface {
   title: string;

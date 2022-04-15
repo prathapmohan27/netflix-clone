@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 
-import { similarMovie } from '../helperFunction/tmdb';
-import LargeImg from '../movieContainer/LargeImg';
-import { Container, Row } from '../movieContainer/MovieContainerStyle';
+import { similarMovie } from '../../helperFunction/tmdb';
+import LargeImg from '../../movieContainer/large/LargeImg';
+import { Container, Row } from '../../movieContainer/MovieContainerStyle';
 
 interface propsInterface {
   movieId: number;
