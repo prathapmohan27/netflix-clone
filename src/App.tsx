@@ -1,6 +1,8 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import InternalRoute from './components/router/InternalRoute';
+
+import MainRouter from './components/router/MainRouter';
+
 const GlobalStyle = createGlobalStyle`
  body,h1,h2,h3,p {
   margin: 0;
@@ -16,7 +18,8 @@ const App = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      <InternalRoute />
+      {/* <InternalRoute /> */}
+      <MainRouter />
     </div>
   );
 };

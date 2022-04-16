@@ -42,12 +42,11 @@ export const Ul = styled.ul<propsInterface>`
       margin-right: 0.8rem;
     }
     li {
+      font-size: 1.5rem;
       margin-top: 1rem;
     }
   }
-
   li {
-    cursor: pointer;
     margin-right: 2.5rem;
     :hover {
       text-decoration: underline;
@@ -55,14 +54,20 @@ export const Ul = styled.ul<propsInterface>`
   }
 `;
 
-export const User = styled.div`
+export const Li = styled.li`
+  display: none;
+  @media only screen and (max-width: 768px) {
+    display: block;
+  }
+`;
+
+export const LogOut = styled.div`
   margin-left: auto;
   margin-right: 1rem;
   align-self: center;
-  img {
-    width: 2.5rem;
-    object-fit: contain;
-    border-radius: 0.5rem;
+  font-size: 2.5rem;
+  @media only screen and (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -70,6 +75,7 @@ export const ListButtonContainer = styled.div`
   display: none;
   align-self: center;
   margin-right: 1rem;
+  margin-left: auto;
   @media only screen and (max-width: 768px) {
     display: block;
   }

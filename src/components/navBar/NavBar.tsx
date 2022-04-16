@@ -1,23 +1,25 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBars,
+  faXmark,
+  faArrowRightFromBracket,
+} from '@fortawesome/free-solid-svg-icons';
 
 import {
   Logo,
   Nav,
   Ul,
-  User,
+  LogOut,
   ListButtonContainer,
   ListButton,
   CloseButtonContainer,
   Path,
+  Li,
 } from './NavBarStyle';
 import logo from '../assets/logo.png';
-import user from '../assets/user.png';
-import DropDown from './dropDown/DropDown';
 
 const NavBar = () => {
-  const [isDropDown, setIsDropDown] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const [isSidebar, setIsSidebar] = useState<boolean>(false);
 
@@ -37,10 +39,6 @@ const NavBar = () => {
     };
   }, []);
 
-  const showDropDown = () => {
-    setIsDropDown(!isDropDown);
-  };
-
   const showSidebar = () => {
     setIsSidebar(!isSidebar);
   };
@@ -55,7 +53,7 @@ const NavBar = () => {
           </CloseButtonContainer>
         </div>
         <li>
-          <Path to="/">Home</Path>
+          <Path to="/home">Home</Path>
         </li>
         <li>
           <Path to="/movies">Movie</Path>
@@ -63,13 +61,15 @@ const NavBar = () => {
         <li>
           <Path to="/recent">Recently Added</Path>
         </li>
-        {/* <li>Tv Shows</li>
-        <li>My List</li> */}
+        <Li>
+          <Path to="/">Log Out</Path>
+        </Li>
       </Ul>
-      <User>
-        <img onClick={showDropDown} src={user} alt="user" />
-      </User>
-      <DropDown show={isDropDown} />
+      <LogOut>
+        <Path to="/">
+          <FontAwesomeIcon icon={faArrowRightFromBracket} />
+        </Path>
+      </LogOut>
       <ListButtonContainer>
         <ListButton onClick={showSidebar}>
           <FontAwesomeIcon icon={faBars} />
