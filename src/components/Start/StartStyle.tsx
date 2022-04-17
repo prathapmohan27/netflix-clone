@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import bg from '../assets/bg.jpg';
 
-export const Container = styled.div`
+export const StartContainer = styled.div`
   background-image: url(${bg});
   height: 100vh;
   display: flex;

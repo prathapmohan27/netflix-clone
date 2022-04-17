@@ -25,7 +25,13 @@ const GridContainer = ({ title, link }: propsInterface) => {
       <h2>{title}</h2>
       <Grid>
         {data.map((obj, i) => {
-          return <LargeImg url={obj.poster_path} id={obj.id} key={i} />;
+          return (
+            <LargeImg
+              url={obj.poster_path || obj.backdrop_path}
+              id={obj.id}
+              key={i}
+            />
+          );
         })}
       </Grid>
     </Main>

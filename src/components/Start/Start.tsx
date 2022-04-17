@@ -1,4 +1,4 @@
-import { Container, Main } from './StartStyle';
+import { StartContainer, Main } from './StartStyle';
 import { Path } from '../navBar/NavBarStyle';
 import InitialHeader from './initialHeader/InitialHeader';
 
@@ -6,18 +6,18 @@ const Start = () => {
   return (
     <div>
       <InitialHeader />
-      <Container>
+      <StartContainer>
         <Main>
           <h1>Unlimited movies, TV</h1>
           <h1>shows and more.</h1>
           <p>Watch anywhere. Cancel anytime.</p>
           <div>
-            <button>
-              <Path to="/home">Get Started</Path>
-            </button>
+            <Path to="/sign-in-page">
+              <button>Get Started</button>
+            </Path>
           </div>
         </Main>
-      </Container>
+      </StartContainer>
     </div>
   );
 };

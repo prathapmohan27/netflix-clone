@@ -18,7 +18,6 @@ const App = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      {/* <InternalRoute /> */}
       <MainRouter />
     </div>
   );
