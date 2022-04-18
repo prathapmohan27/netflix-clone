@@ -15,8 +15,6 @@ const LargerMovieContainer = () => {
     setData(movieData);
   };
 
-  console.log('netflix=>', data);
-
   return (
     <Container>
       <h2>Netflix Original</h2>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
@@ -18,10 +19,12 @@ import {
   Li,
 } from './NavBarStyle';
 import logo from '../assets/logo.png';
+import { logOut } from '../helperFunction/firebase';
 
 const NavBar = () => {
   const [scroll, setScroll] = useState<boolean>(false);
   const [isSidebar, setIsSidebar] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   function handleScroll() {
     if (window.pageYOffset > 15) {
@@ -43,6 +46,11 @@ const NavBar = () => {
     setIsSidebar(!isSidebar);
   };
 
+  const handleLogOut = () => {
+    logOut();
+    navigate('/');
+  };
+
   return (
     <Nav scroll={scroll}>
       <Logo src={logo} alt="netflix" />
@@ -61,14 +69,10 @@ const NavBar = () => {
         <li>
           <Path to="/recent">Recently Added</Path>
         </li>
-        <Li>
-          <Path to="/">Log Out</Path>
-        </Li>
+        <Li onClick={handleLogOut}>Log Out</Li>
       </Ul>
-      <LogOut>
-        <Path to="/">
-          <FontAwesomeIcon icon={faArrowRightFromBracket} />
-        </Path>
+      <LogOut onClick={handleLogOut}>
+        <FontAwesomeIcon icon={faArrowRightFromBracket} />
       </LogOut>
       <ListButtonContainer>
         <ListButton onClick={showSidebar}>

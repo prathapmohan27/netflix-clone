@@ -22,6 +22,7 @@ export const Form = styled.form`
 `;
 
 export const SignButton = styled.button`
+  width: 100%;
   margin-top: 2rem;
   color: inherit;
   background-color: #e50914;
@@ -67,9 +68,15 @@ export const TextContainer = styled.div`
 
 export const Label = styled.label<propsInterface>`
   position: absolute;
-  top: ${(props) => (props.str === '' ? 'auto' : '0')};
+  top: ${(props) => (props.str === '' ? '0.6rem' : '0')};
   left: auto;
   font-size: ${(props) => (props.str === '' ? '' : '0.7rem')};
   cursor: text;
-  transition: top 100ms ease-in;
+  z-index: 5;
+  transition: top 200ms linear;
+`;
+
+export const Meg = styled.span`
+  color: #e87c03;
+  font-size: 0.8rem;
 `;
