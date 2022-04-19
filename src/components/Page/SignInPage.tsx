@@ -1,4 +1,4 @@
-import Login from '../auth/login/Login';
+import SignIn from '../auth/signIn/SignIn';
 import InitialHeader from '../Start/initialHeader/InitialHeader';
 import { StartContainer } from '../Start/StartStyle';
 
@@ -7,7 +7,7 @@ const SignInPage = () => {
     <>
       <InitialHeader />
       <StartContainer>
-        <Login />
+        <SignIn />
       </StartContainer>
     </>
   );

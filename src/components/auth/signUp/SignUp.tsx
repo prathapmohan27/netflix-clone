@@ -52,21 +52,22 @@ const SignUp = () => {
   };
 
   const validation = () => {
-    if (data.email === '' || !data.email.match(/^\S+@\S+\.\S+$/)) {
+    const { email, password, confirmPassword } = data;
+    if (email === '' || !email.match(/^\S+@\S+\.\S+$/)) {
       setEmailError(true);
       return true;
-    } else if (data.password.length >= 6 || data.password === '') {
-      if (data.confirmPassword !== data.password) {
+    } else if (password.length <= 6 || confirmPassword.length <= 6) {
+      setLengthError(true);
+      setPawError(false);
+      setEmailError(false);
+      return true;
+    } else if (password.length >= 6 || confirmPassword.length >= 6) {
+      if (confirmPassword !== password) {
         setPawError(true);
         setLengthError(false);
         setEmailError(false);
         return true;
-      } else {
-        setLengthError(true);
-        setPawError(false);
-        setEmailError(false);
       }
-      return true;
     } else {
       return false;
     }
@@ -77,13 +78,14 @@ const SignUp = () => {
       <h1>Sign Up</h1>
       {emailError ? <Meg>Enter valid email and password</Meg> : null}
       {lengthError ? <Meg>Password should be at least 6 characters</Meg> : null}
-      <Form action="">
+      <Form>
         <InputContainer>
           <input
             onChange={handleChange}
             type="email"
             id="email"
             name="email"
+            data-testid="email"
             autoComplete="off"
           />
           <Label str={data.email} htmlFor="email">
@@ -96,6 +98,7 @@ const SignUp = () => {
             type="password"
             id="password"
             name="password"
+            data-testid="password"
             required
             autoComplete="off"
           />
@@ -110,6 +113,7 @@ const SignUp = () => {
             type="password"
             id="confirmPassword"
             name="confirmPassword"
+            data-testid="confirmPassword"
             required
             autoComplete="off"
           />
@@ -118,7 +122,9 @@ const SignUp = () => {
           </Label>
         </InputContainer>
         {pawError ? <Meg>Password not Match</Meg> : null}
-        <SignButton onClick={handleSubmit}>Sign Up</SignButton>
+        <SignButton onClick={handleSubmit} data-testid="sign-up">
+          Sign Up
+        </SignButton>
       </Form>
       <TextContainer>
         <p>Already have an account?</p>

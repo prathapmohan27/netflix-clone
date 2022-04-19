@@ -17,7 +17,7 @@ interface LoginInterface {
   password: string;
 }
 
-const Login = () => {
+const SignIn = () => {
   const [errorMeg, setErrorMeg] = useState<boolean>(false);
   const [data, setData] = useState<LoginInterface>({
     email: '',
@@ -64,6 +64,7 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
+            data-testid="email"
             autoComplete="off"
           />
           <Label str={data.email} htmlFor="email">
@@ -76,6 +77,7 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
+            data-testid="password"
             autoComplete="off"
           />
           <Label str={data.password} htmlFor="password">
@@ -83,7 +85,9 @@ const Login = () => {
           </Label>
         </InputContainer>
 
-        <SignButton onClick={handleSubmit}>Sign In</SignButton>
+        <SignButton onClick={handleSubmit} data-testid="sign-in">
+          Sign In
+        </SignButton>
       </Form>
       <TextContainer>
         <p>New to Netflix?</p>
@@ -95,4 +99,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;
