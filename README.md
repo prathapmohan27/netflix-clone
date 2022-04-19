@@ -1,6 +1,6 @@
 # netflix-clone
 
-[Live Demo](https://netflix-clone-ff2d9.web.app/)
+[Live Demo](https://netflix-clone-ff2d9.firebaseapp.com/)
 
 ## video
 
