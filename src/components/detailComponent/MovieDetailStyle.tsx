@@ -15,7 +15,7 @@ export const Div = styled.div`
     margin: 0;
     padding: 0.5rem;
     width: 95%;
-    transform: scaleY(1);
+    transform: none;
     border-radius: none;
   }
   img {
