@@ -1,6 +1,11 @@
-# netflix-clone
+# Netflix-clone
 
 [Live Demo](https://netflix-clone-ff2d9.firebaseapp.com/)
+
+## credential:
+
+User name: test@yopmail.com,
+Pwd: test@123,
 
 ## video
 
